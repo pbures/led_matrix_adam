@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+
+# Program je v Pythonu3
+# Pusti se primo na rpi jednoduse na prikazovem radku v adresari kde je program napsany:
+# ./simple.py
+
 import time
 
 import numpy as np
@@ -39,7 +44,7 @@ if __name__ == "__main__":
         draw.point((3, 3), fill=1)
         
         # Toto nakresli obdelnik s rohy (1,1) a (30,6). 
-        draw.rectangle([(1,1), (30,6)], fill=None, outline=1, width=2)
+        draw.rectangle([(1,1), (30,6)], fill=None, outline=1, width=1)
 
         # Toto prikaze obrazku at se dokonci kresleni. 
         img.show()
@@ -47,8 +52,10 @@ if __name__ == "__main__":
         # Toto rekne nasi matici aby tam zobrazila obrazek co jsme nakreslili
         device.display(img)
 
-        # Pocka 10 vterin nez program skonci.
-        time.sleep(10)
+        # Toto porad dokola nic nedela, aby neskoncil program. Vypne se to az se ukonci program, 
+        # na prikazove radce Ctrl-C.
+        while True:
+            noop
 
     except KeyboardInterrupt:
         pass
